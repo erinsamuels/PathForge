@@ -50,7 +50,7 @@ body {
   gap: 56px;
   align-items: center;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 96px;
 }
 
 .eyebrow {
@@ -152,4 +152,93 @@ select,
 .scorePreview p {
   color: #334155;
   margin: 0;
+}
+
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  margin-bottom: 28px;
+}
+
+.sectionHeader h2 {
+  font-size: 36px;
+  line-height: 1.1;
+  max-width: 720px;
+  margin: 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card {
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 26px;
+  padding: 28px;
+  min-height: 260px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.cardLabel {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 800;
+  margin: 0 0 16px;
+}
+
+.metric {
+  color: #059669;
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 0.9;
+  margin-bottom: 18px;
+}
+
+.card h3 {
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+
+.card p {
+  color: #334155;
+  line-height: 1.55;
+}
+
+.greenText {
+  color: #15803d !important;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.pill {
+  display: inline-block;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 900;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 46px;
+  }
+
+  .navLinks {
+    display: none;
+  }
 }

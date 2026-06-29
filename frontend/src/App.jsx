@@ -54,6 +54,45 @@ function App() {
           </div>
         </div>
       </section>
+
+      <section className="dashboard">
+        <div className="sectionHeader">
+          <p className="eyebrow">Your Path Dashboard</p>
+          <h2>Turn your current experience into a clear next move.</h2>
+        </div>
+
+        <div className="cards">
+          <article className="card">
+            <p className="cardLabel">Trajectory</p>
+            <div className="metric">88</div>
+            <h3>Strong trajectory</h3>
+            <p>
+              You are aligned with early EV manufacturing paths based on your
+              current experience.
+            </p>
+          </article>
+
+          <article className="card">
+            <p className="cardLabel">Best Career Match</p>
+            <h3>Sarah Chen</h3>
+            <p className="greenText">Manufacturing Engineer</p>
+            <span className="pill">91% Match</span>
+            <p>
+              Shared manufacturing, CAD, and root-cause background.
+            </p>
+          </article>
+
+          <article className="card">
+            <p className="cardLabel">Recommended Next Step</p>
+            <h3>BorgWarner</h3>
+            <p className="greenText">Manufacturing Engineering</p>
+            <span className="pill">74% Confidence</span>
+            <p>
+              Strong stepping-stone toward EV OEM roles like Rivian.
+            </p>
+          </article>
+        </div>
+      </section>
     </main>
   );
 }
