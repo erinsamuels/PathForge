@@ -1,0 +1,52 @@
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:28px 0;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:28px;
+    font-weight:800;
+}
+
+.logo{
+    font-size:32px;
+}
+
+.path{
+    color:white;
+}
+
+.forge{
+    color:#22C55E;
+}
+
+.links{
+    display:flex;
+    gap:32px;
+}
+
+.links a{
+    text-decoration:none;
+    color:#CBD5E1;
+    font-weight:600;
+    transition:.2s;
+}
+
+.links a:hover{
+    color:white;
+}
+
+.loginButton{
+    background:#22C55E;
+    color:white;
+    border:none;
+    border-radius:12px;
+    padding:12px 22px;
+    font-weight:700;
+    cursor:pointer;
+}

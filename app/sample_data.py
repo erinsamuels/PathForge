@@ -1,11 +1,12 @@
-"""Sample development data."""
+"""Sample data for PathForge."""
 
 from app.models.company import Company
 from app.models.experience import Experience, ExperienceType
 from app.models.person import Person
 
 
-def get_sample_person() -> Person:
+def build_erin() -> Person:
+    """Create Erin's profile."""
 
     erin = Person(
         person_id="P001",
@@ -34,7 +35,7 @@ def get_sample_person() -> Person:
     hevt = Company(
         company_id="C002",
         name="Hybrid Electric Vehicle Team",
-        industry="Student Organization",
+        industry="Student Engineering",
         size_category="Student Team",
         headquarters_location="Blacksburg, VA",
     )
@@ -42,13 +43,12 @@ def get_sample_person() -> Person:
     dupont = Company(
         company_id="C003",
         name="DuPont",
-        industry="Advanced Manufacturing",
+        industry="Manufacturing",
         size_category="Enterprise",
-        headquarters_location="Wilmington, DE",
+        headquarters_location="Richmond, VA",
     )
 
     erin.experiences = [
-
         Experience(
             experience_id="E001",
             person=erin,
@@ -58,53 +58,55 @@ def get_sample_person() -> Person:
             experience_type=ExperienceType.EDUCATION,
             start_date="2023-08",
         ),
-
         Experience(
             experience_id="E002",
             person=erin,
             company=hevt,
-            raw_title="HEVT Team Member",
+            raw_title="HEVT Member",
             normalized_title="Engineering Project",
             experience_type=ExperienceType.PROJECT,
             start_date="2023-09",
-            skills_used=["CAD", "Manufacturing"],
         ),
-
         Experience(
             experience_id="E003",
             person=erin,
             company=dupont,
-            raw_title="Dry End Mechanical Engineering Co-op",
+            raw_title="Mechanical Engineering Co-op",
             normalized_title="Mechanical Engineering Co-op",
             experience_type=ExperienceType.CO_OP,
             start_date="2026-05",
-            end_date="2026-12",
-            skills_used=[
-                "Manufacturing",
-                "Python",
-                "Root Cause Analysis",
-            ],
         ),
     ]
 
     return erin
 
-def get_sample_match() -> Person:
-    """Return a sample career match for comparison."""
+
+def build_sarah() -> Person:
+    """Create a sample career match."""
 
     sarah = Person(
         person_id="P002",
         full_name="Sarah Chen",
-        professional_summary="Manufacturing engineer in the EV industry.",
+        professional_summary="Manufacturing Engineer",
         location="Irvine, CA",
         skills=[
             "CAD",
             "Manufacturing",
-            "DFMEA",
             "Root Cause Analysis",
             "Battery Manufacturing",
+            "DFMEA",
         ],
         target_company="Rivian",
     )
 
     return sarah
+
+
+def get_sample_person() -> Person:
+    return build_erin()
+
+
+def get_sample_people() -> list[Person]:
+    return [
+        build_sarah(),
+    ]

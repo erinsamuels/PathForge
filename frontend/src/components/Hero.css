@@ -1,0 +1,103 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 56px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 96px;
+}
+
+.hero h1 {
+  font-size: 64px;
+  line-height: 1.02;
+  margin: 0;
+  max-width: 760px;
+}
+
+.subtitle {
+  color: #cbd5e1;
+  font-size: 20px;
+  line-height: 1.7;
+  max-width: 620px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.primaryButton {
+  background: #16a34a;
+  color: white;
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.panel {
+  background: white;
+  color: #0f172a;
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+label {
+  display: block;
+  color: #475569;
+  font-weight: 800;
+  margin: 20px 0 8px;
+}
+
+select,
+.uploadBox {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 18px;
+  font-size: 18px;
+  font-weight: 700;
+  background: #f8fafc;
+}
+
+.uploadBox {
+  color: #64748b;
+}
+
+.scorePreview {
+  margin-top: 28px;
+  padding: 24px;
+  border-radius: 20px;
+  background: #ecfdf5;
+}
+
+.scorePreview span {
+  color: #166534;
+  font-weight: 800;
+}
+
+.scorePreview strong {
+  display: block;
+  color: #059669;
+  font-size: 56px;
+  line-height: 1;
+  margin: 8px 0;
+}
+
+.scorePreview p {
+  color: #334155;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+  }
+}

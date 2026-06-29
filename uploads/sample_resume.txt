@@ -1,18 +1,7 @@
 Erin Samuels
 
 Mechanical Engineering Student
-
 Virginia Tech
-
-Mechanical Engineering
-
-Skills
-
-CAD
-Python
-Manufacturing
-SolidWorks
-Root Cause Analysis
 
 Experience
 
@@ -21,3 +10,12 @@ Mechanical Engineering Co-op
 
 Hybrid Electric Vehicle Team
 Mechanical Team Member
+
+Skills
+
+CAD
+Python
+Manufacturing
+SolidWorks
+Root Cause Analysis
+Leadership
