@@ -19,10 +19,13 @@ class CareerDNA:
 def calculate_career_dna(person: Person, match: Person) -> CareerDNA:
     """Calculate a simple Career DNA score."""
 
-    timeline_score = (
-        min(len(person.experiences), len(match.experiences))
-        / max(len(person.experiences), len(match.experiences))
-    ) * 100
+    if not person.experiences or not match.experiences:
+        timeline_score = 0.0
+    else:
+        timeline_score = (
+            min(len(person.experiences), len(match.experiences))
+            / max(len(person.experiences), len(match.experiences))
+        ) * 100
 
     skill_score = calculate_skill_similarity(person, match)
 
