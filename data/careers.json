@@ -1,0 +1,41 @@
+[
+  {
+    "person_id": "P002",
+    "full_name": "Sarah Chen",
+    "location": "Irvine, CA",
+    "target_company": "Rivian",
+    "skills": [
+      "CAD",
+      "Manufacturing",
+      "Root Cause Analysis",
+      "Battery Manufacturing",
+      "DFMEA"
+    ]
+  },
+  {
+    "person_id": "P003",
+    "full_name": "Alex Ramirez",
+    "location": "Detroit, MI",
+    "target_company": "Tesla",
+    "skills": [
+      "Python",
+      "Automation",
+      "Manufacturing",
+      "PLC",
+      "Lean Manufacturing"
+    ]
+  },
+  {
+    "person_id": "P004",
+    "full_name": "Michael Lee",
+    "location": "Fremont, CA",
+    "target_company": "Lucid",
+    "skills": [
+      "CAD",
+      "GD&T",
+      "DFMEA",
+      "Manufacturing",
+      "Six Sigma"
+    ]
+  }
+]
