@@ -1,6 +1,20 @@
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { Check } from "lucide-react";
 
 export function NextActions({ moves }) {
+  const [checked, setChecked] = useState(new Set());
+
+  function toggle(i) {
+    setChecked((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
+      return next;
+    });
+  }
+
+  const doneCount = checked.size;
+
   return (
     <section className="panel">
       <div className="panelHeader">
@@ -8,19 +22,31 @@ export function NextActions({ moves }) {
           <p className="eyebrow">Recommended</p>
           <h2>Priority actions</h2>
         </div>
-        <div className="panelBadge panelBadge-gold">{moves.length} moves</div>
+        <div className={`panelBadge ${doneCount > 0 ? "panelBadge-sage" : "panelBadge-gold"}`}>
+          {doneCount > 0 ? `${doneCount}/${moves.length} done` : `${moves.length} moves`}
+        </div>
       </div>
 
       <div className="actionList">
-        {moves.map((move, index) => (
-          <article className="actionItem" key={move}>
-            <div className="actionNum">{index + 1}</div>
-            <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 8 }}>
-              <p className="actionText">{move}</p>
-              <ArrowRight size={14} style={{ color: "var(--text-3)", flexShrink: 0, marginTop: 8 }} />
-            </div>
-          </article>
-        ))}
+        {moves.map((move, index) => {
+          const done = checked.has(index);
+          return (
+            <article
+              key={move}
+              className={`actionItem ${done ? "checked" : ""}`}
+              style={{ cursor: "pointer" }}
+              onClick={() => toggle(index)}
+            >
+              <div className="actionNum">{index + 1}</div>
+              <div className="actionCheckRow">
+                <p className="actionText">{move}</p>
+                <div className="actionCheckBtn">
+                  {done && <Check size={12} />}
+                </div>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

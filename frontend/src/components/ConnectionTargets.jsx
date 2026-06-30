@@ -1,6 +1,10 @@
-import { Search, MessageSquare } from "lucide-react";
+import { Search, MessageSquare, ArrowUpRight } from "lucide-react";
 
 export function ConnectionTargets({ connections }) {
+  function linkedInUrl(search) {
+    return `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(search)}`;
+  }
+
   return (
     <section className="panel">
       <div className="panelHeader">
@@ -38,6 +42,16 @@ export function ConnectionTargets({ connections }) {
               </div>
               <p className="messageBoxText">{connection.message}</p>
             </div>
+
+            <a
+              className="connectionFindBtn"
+              href={linkedInUrl(connection.search)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ArrowUpRight size={14} />
+              Find on LinkedIn
+            </a>
           </article>
         ))}
       </div>

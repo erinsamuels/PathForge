@@ -36,7 +36,6 @@ export function Dashboard({
           </h2>
           <p className="dashHeroSummary">{target.summary}</p>
 
-          {/* Quick stats */}
           <div style={{ display: "flex", gap: 10, marginTop: 18, flexWrap: "wrap" }}>
             <div style={{
               display: "inline-flex", alignItems: "center", gap: 6,
@@ -72,42 +71,49 @@ export function Dashboard({
         />
       </section>
 
-      {/* Primary grid: graph (wide) + score (narrow) */}
-      <div className="dashGrid">
-        <CareerGraph
-          activeNodeId={activeNodeId}
-          nodes={target.nodes}
-          onSelectNode={onSelectNode}
-        />
+      {/* Google Maps layout: graph + scrollable content on left, sticky workspace on right */}
+      <div className="dashMain">
 
-        <PathScore
-          activeMoves={activeMoves}
-          pathScore={pathScore}
-          target={target}
-        />
-
-        <NodeDetails node={activeNode} />
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          <NextActions moves={target.nextMoves} />
-          <PathDNA target={target} />
+        {/* Top-left: Career Graph — the central interactive engine */}
+        <div className="dashGraph">
+          <CareerGraph
+            activeNodeId={activeNodeId}
+            nodes={target.nodes}
+            onSelectNode={onSelectNode}
+            target={target}
+          />
         </div>
+
+        {/* Bottom-left: content that scrolls while workspace stays visible */}
+        <div className="dashContent">
+          <div className="insightDnaRow">
+            <InsightPanel target={target} activeNode={activeNode} pathScore={pathScore} />
+            <PathDNA target={target} />
+          </div>
+
+          <NextActions moves={target.nextMoves} />
+
+          <ResumeGap gap={target.resumeGap} />
+
+          <CompanyTargets companies={target.companies} />
+
+          <ConnectionTargets connections={target.connections} />
+
+          <Simulator selectedMoves={selectedMoves} onToggleMove={onToggleMove} />
+        </div>
+
+        {/* Right: sticky workspace — reacts to node selection with slide-in */}
+        <aside className="workspaceCol">
+          <div key={activeNodeId} className="workspaceContent">
+            <NodeDetails node={activeNode} />
+          </div>
+          <PathScore
+            activeMoves={activeMoves}
+            pathScore={pathScore}
+            target={target}
+          />
+        </aside>
       </div>
-
-      {/* Insights — full width */}
-      <InsightPanel target={target} activeNode={activeNode} pathScore={pathScore} />
-
-      {/* Resume gap — full width */}
-      <ResumeGap gap={target.resumeGap} />
-
-      {/* Companies */}
-      <CompanyTargets companies={target.companies} />
-
-      {/* Connections */}
-      <ConnectionTargets connections={target.connections} />
-
-      {/* Simulator — full width */}
-      <Simulator selectedMoves={selectedMoves} onToggleMove={onToggleMove} />
 
     </div>
   );

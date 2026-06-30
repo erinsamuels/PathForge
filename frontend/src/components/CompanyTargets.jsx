@@ -1,4 +1,18 @@
+import { useState } from "react";
+import { Bookmark, ArrowUpRight } from "lucide-react";
+
 export function CompanyTargets({ companies }) {
+  const [bookmarked, setBookmarked] = useState(new Set());
+
+  function toggleBookmark(name) {
+    setBookmarked((prev) => {
+      const next = new Set(prev);
+      if (next.has(name)) next.delete(name);
+      else next.add(name);
+      return next;
+    });
+  }
+
   return (
     <section className="panel">
       <div className="panelHeader">
@@ -10,52 +24,65 @@ export function CompanyTargets({ companies }) {
       </div>
 
       <div className="companyGrid">
-        {companies.map((company) => (
-          <article className="companyCard" key={company.name}>
-            <div className="companyLogo">
-              {company.name.slice(0, 2).toUpperCase()}
-            </div>
-
-            <div>
-              <div className="companyName">{company.name}</div>
-              <p className="companyFit">{company.fit}</p>
-            </div>
-
-            {company.matchScore && (
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <div style={{
-                  flex: 1,
-                  height: 5,
-                  borderRadius: "var(--r-full)",
-                  background: "var(--s2)",
-                  overflow: "hidden",
-                }}>
-                  <div style={{
-                    height: "100%",
-                    width: `${company.matchScore}%`,
-                    borderRadius: "inherit",
-                    background: "linear-gradient(90deg, var(--sage), var(--gold))",
-                    transformOrigin: "left",
-                    animation: "barFill 1.2s var(--ease) 0.4s both",
-                  }} />
-                </div>
-                <span style={{ fontSize: "0.72rem", fontWeight: 800, color: "var(--gold)", whiteSpace: "nowrap" }}>
-                  {company.matchScore}% fit
-                </span>
+        {companies.map((company) => {
+          const saved = bookmarked.has(company.name);
+          return (
+            <article className="companyCard" key={company.name}>
+              <div className="companyLogo">
+                {company.name.slice(0, 2).toUpperCase()}
               </div>
-            )}
 
-            <div className="companyMeta">
-              <div className="companyMetaLabel">Role types</div>
-              <div className="companyMetaVal">{company.roleType}</div>
-            </div>
+              <div>
+                <div className="companyName">{company.name}</div>
+                <p className="companyFit">{company.fit}</p>
+              </div>
 
-            <div className="companyMeta">
-              <div className="companyMetaLabel">Intro angle</div>
-              <div className="companyMetaVal">{company.introAngle}</div>
-            </div>
-          </article>
-        ))}
+              {company.matchScore && (
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <div style={{
+                    flex: 1, height: 5, borderRadius: "var(--r-full)",
+                    background: "var(--s2)", overflow: "hidden",
+                  }}>
+                    <div style={{
+                      height: "100%", width: `${company.matchScore}%`,
+                      borderRadius: "inherit",
+                      background: "linear-gradient(90deg, var(--sage), var(--gold))",
+                      transformOrigin: "left",
+                      animation: "barFill 1.2s var(--ease) 0.4s both",
+                    }} />
+                  </div>
+                  <span style={{ fontSize: "0.72rem", fontWeight: 800, color: "var(--gold)", whiteSpace: "nowrap" }}>
+                    {company.matchScore}% fit
+                  </span>
+                </div>
+              )}
+
+              <div className="companyMeta">
+                <div className="companyMetaLabel">Role types</div>
+                <div className="companyMetaVal">{company.roleType}</div>
+              </div>
+
+              <div className="companyMeta">
+                <div className="companyMetaLabel">Intro angle</div>
+                <div className="companyMetaVal">{company.introAngle}</div>
+              </div>
+
+              <div className="companyActions">
+                <button className="companyActionsBtn">
+                  <ArrowUpRight size={13} />
+                  View roles
+                </button>
+                <button
+                  className={`companyActionsBtn ${saved ? "bookmarked" : ""}`}
+                  onClick={() => toggleBookmark(company.name)}
+                >
+                  <Bookmark size={13} />
+                  {saved ? "Saved" : "Save"}
+                </button>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );
