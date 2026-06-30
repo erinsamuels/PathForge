@@ -107,17 +107,16 @@ export function PathScore({ activeMoves, pathScore, target }) {
               }}
             />
 
-            {/* Boost ghost overlay */}
+            {/* Boost ghost: shows remaining potential from 0 to full */}
             {boost > 0 && (
               <circle
                 cx="64" cy="64" r={RADIUS}
                 fill="none"
-                stroke="rgba(184,214,172,0.3)"
+                stroke="rgba(184,214,172,0.22)"
                 strokeWidth="9"
                 strokeLinecap="round"
-                strokeDasharray={`${(boost / 100) * CIRC} ${CIRC}`}
+                strokeDasharray={CIRC}
                 strokeDashoffset={CIRC - (target.score / 100) * CIRC}
-                style={{ opacity: 0.35 }}
               />
             )}
           </svg>

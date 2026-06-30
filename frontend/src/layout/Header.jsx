@@ -8,7 +8,7 @@ const pageConfig = {
   "companies":  { eyebrow: "Target companies", title: "Company research"    },
 };
 
-export function Header({ page, target }) {
+export function Header({ page }) {
   const config = pageConfig[page] ?? pageConfig["dashboard"];
 
   return (

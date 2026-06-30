@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { CareerGraph } from "../components/CareerGraph";
 import { NodeDetails } from "../components/NodeDetails";
 import { PathScore } from "../components/PathScore";
@@ -13,8 +12,6 @@ export function CareerMapPage({
   targets,
   onChangeTarget,
 }) {
-  const [compareTarget, setCompareTarget] = useState(null);
-
   const otherTargets = targets.filter((t) => t.id !== target.id);
 
   return (
@@ -101,7 +98,7 @@ export function CareerMapPage({
 
         <div className="journeyTimeline">
           <div className="journeyLine" />
-          {target.nodes.map((node, i) => (
+          {target.nodes.map((node) => (
             <div
               key={node.id}
               className="journeyNode"

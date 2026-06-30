@@ -1,4 +1,4 @@
-import { Building2, ExternalLink, TrendingUp } from "lucide-react";
+import { ExternalLink, TrendingUp } from "lucide-react";
 
 export function CompaniesPage({ target, targets }) {
   // Collect all unique companies across all targets
@@ -138,7 +138,7 @@ export function CompaniesPage({ target, targets }) {
 
         <div style={{ display: "grid", gap: 10 }}>
           {allCompanies.map((company, i) => (
-            <div key={`${company.name}-${i}`} style={{
+            <div key={`${company.name}-${i}`} className="hoverRow" style={{
               display: "grid",
               gridTemplateColumns: "44px minmax(0,1fr) auto",
               gap: 14,
@@ -147,17 +147,8 @@ export function CompaniesPage({ target, targets }) {
               padding: "14px 16px",
               background: "var(--s1)",
               border: "1px solid var(--border)",
-              transition: "all 0.2s ease",
               cursor: "pointer",
               animation: `fadeUp 0.4s var(--ease) ${i * 0.05}s both`,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--border-gold)";
-              e.currentTarget.style.background = "rgba(247,216,157,0.04)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "var(--border)";
-              e.currentTarget.style.background = "var(--s1)";
             }}
             >
               <div style={{

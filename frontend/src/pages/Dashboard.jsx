@@ -34,6 +34,34 @@ export function Dashboard({
             at {target.company}
           </h2>
           <p className="dashHeroSummary">{target.summary}</p>
+
+          {/* Quick stats */}
+          <div style={{ display: "flex", gap: 10, marginTop: 18, flexWrap: "wrap" }}>
+            <div style={{
+              display: "inline-flex", alignItems: "center", gap: 6,
+              borderRadius: "var(--r-full)", padding: "6px 13px",
+              background: "var(--gold-glow)", border: "1px solid var(--border-gold)",
+              fontSize: "0.78rem", fontWeight: 800, color: "var(--gold)",
+            }}>
+              {pathScore}/100 path score
+            </div>
+            <div style={{
+              display: "inline-flex", alignItems: "center", gap: 6,
+              borderRadius: "var(--r-full)", padding: "6px 13px",
+              background: "var(--s2)", border: "1px solid var(--border)",
+              fontSize: "0.78rem", fontWeight: 700, color: "var(--text-2)",
+            }}>
+              {target.nodes.length} steps mapped
+            </div>
+            <div style={{
+              display: "inline-flex", alignItems: "center", gap: 6,
+              borderRadius: "var(--r-full)", padding: "6px 13px",
+              background: "var(--sage-glow)", border: "1px solid var(--border-sage)",
+              fontSize: "0.78rem", fontWeight: 700, color: "var(--sage-lt)",
+            }}>
+              {target.companies.length} target companies
+            </div>
+          </div>
         </div>
 
         <TargetSelector

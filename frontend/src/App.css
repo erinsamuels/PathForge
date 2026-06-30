@@ -516,6 +516,10 @@ body {
 .graphNode.goal .graphNodeStep {
   border-radius: 50%;
   box-shadow: 0 0 0 6px rgba(247,216,157,0.14), 0 4px 14px rgba(195,134,67,0.4);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+.graphNode.active.goal .graphNodeStep {
+  animation: pulse 1.8s ease-in-out infinite;
 }
 .graphNodeLabel {
   font-size: 0.8rem;
@@ -1512,6 +1516,89 @@ body {
   .companiesHeroGrid, .networkStat {
     grid-template-columns: 1fr;
   }
+}
+
+/* ============================================================
+   HOVER ROW (for list items with inline styles)
+   ============================================================ */
+.hoverRow {
+  transition: border-color var(--t-base) var(--ease), background var(--t-base) var(--ease);
+}
+.hoverRow:hover {
+  border-color: var(--border-gold) !important;
+  background: rgba(247,216,157,0.04) !important;
+}
+
+/* ============================================================
+   MOBILE NAV BAR
+   ============================================================ */
+.mobileNav {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10,18,12,0.92);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  padding: 8px 16px max(8px, env(safe-area-inset-bottom));
+}
+.mobileNavList {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+.mobileNavBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 12px;
+  border-radius: var(--r-md);
+  color: var(--text-3);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color var(--t-base) var(--ease), background var(--t-base) var(--ease);
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.mobileNavBtn.active {
+  color: var(--gold);
+  background: var(--gold-ring);
+}
+.mobileNavBtn svg { opacity: 0.8; }
+.mobileNavBtn.active svg { opacity: 1; }
+
+@media (max-width: 1100px) {
+  .mobileNav { display: block; }
+  body { padding-bottom: 72px; }
+}
+
+/* ============================================================
+   PANEL STAGGER ANIMATIONS (for dashboard)
+   ============================================================ */
+.dashboard > * { animation: fadeUp 0.4s var(--ease) both; }
+.dashboard > *:nth-child(1) { animation-delay: 0.05s; }
+.dashboard > *:nth-child(2) { animation-delay: 0.1s;  }
+.dashboard > *:nth-child(3) { animation-delay: 0.15s; }
+.dashboard > *:nth-child(4) { animation-delay: 0.2s;  }
+.dashboard > *:nth-child(5) { animation-delay: 0.25s; }
+.dashboard > *:nth-child(6) { animation-delay: 0.3s;  }
+.dashboard > *:nth-child(7) { animation-delay: 0.35s; }
+
+/* ============================================================
+   SCORE RING GLOW EFFECT
+   ============================================================ */
+.scoreRingWrap::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(247,216,157,0.06), transparent 70%);
+  pointer-events: none;
 }
 
 /* ============================================================
