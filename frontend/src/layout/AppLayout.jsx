@@ -1,5 +1,5 @@
 import {
-  LayoutDashboard, Map, FileText, Users, Building2,
+  LayoutDashboard, Map, FileText, Users, Building2, Upload,
 } from "lucide-react";
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
@@ -9,7 +9,7 @@ const mobileNav = [
   { id: "career-map", label: "Map",      icon: Map             },
   { id: "resume",     label: "Resume",   icon: FileText        },
   { id: "network",    label: "Network",  icon: Users           },
-  { id: "companies",  label: "Companies", icon: Building2      },
+  { id: "upload",     label: "Import",   icon: Upload          },
 ];
 
 export function AppLayout({ children, page, onNavigate, target, pathScore }) {

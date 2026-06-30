@@ -7,3 +7,9 @@ venv/
 .vscode/
 
 .DS_Store
+
+uploads/*.pdf
+uploads/*.docx
+uploads/*.doc
+*.env
+.env

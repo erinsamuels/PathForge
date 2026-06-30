@@ -7,6 +7,7 @@ const pageConfig = {
   "resume":     { eyebrow: "Resume",           title: "Resume intelligence"   },
   "network":    { eyebrow: "Connections",      title: "Network strategy"      },
   "companies":  { eyebrow: "Target companies", title: "Company research"      },
+  "upload":     { eyebrow: "Import",           title: "Resume & profile import" },
 };
 
 function exportCareerPlan(target, pathScore) {

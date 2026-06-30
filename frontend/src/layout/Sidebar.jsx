@@ -5,6 +5,7 @@ import {
   Users,
   Building2,
   TrendingUp,
+  Upload,
 } from "lucide-react";
 
 const navItems = [
@@ -13,6 +14,7 @@ const navItems = [
   { id: "resume",     label: "Resume",      icon: FileText        },
   { id: "network",    label: "Network",     icon: Users           },
   { id: "companies",  label: "Companies",   icon: Building2       },
+  { id: "upload",     label: "Import",      icon: Upload          },
 ];
 
 export function Sidebar({ page, onNavigate, target, pathScore }) {

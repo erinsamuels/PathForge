@@ -6,6 +6,7 @@ import { CareerMapPage } from "./pages/CareerMapPage";
 import { ResumePage } from "./pages/ResumePage";
 import { NetworkPage } from "./pages/NetworkPage";
 import { CompaniesPage } from "./pages/CompaniesPage";
+import { UploadPage } from "./pages/UploadPage";
 import { simulatorMoves, targets } from "./data/pathData";
 
 function App() {
@@ -67,6 +68,8 @@ function App() {
         return <NetworkPage {...sharedProps} />;
       case "companies":
         return <CompaniesPage {...sharedProps} />;
+      case "upload":
+        return <UploadPage />;
       default:
         return <Dashboard {...sharedProps} />;
     }
