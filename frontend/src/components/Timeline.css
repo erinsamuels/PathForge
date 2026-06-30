@@ -1,0 +1,65 @@
+.journeySection {
+  max-width: 1200px;
+  margin: 72px auto 0;
+}
+
+.journeyCard {
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 28px;
+  padding: 36px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+.journeyItem {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  column-gap: 20px;
+  position: relative;
+  min-height: 92px;
+}
+
+.journeyNode {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  z-index: 2;
+}
+
+.journeyNode.complete {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.journeyNode.recommended {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.journeyNode.destination {
+  background: #22c55e;
+  color: white;
+}
+
+.journeyLine {
+  position: absolute;
+  left: 25px;
+  top: 52px;
+  width: 2px;
+  height: 40px;
+  background: #cbd5e1;
+}
+
+.journeyText h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.journeyText p {
+  margin: 6px 0 0;
+  color: #64748b;
+  font-weight: 600;
+}

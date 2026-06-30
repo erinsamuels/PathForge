@@ -1,15 +1,20 @@
 .hero {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 56px;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 72px;
   align-items: center;
   max-width: 1200px;
-  margin: 0 auto 96px;
+  margin: 0 auto 108px;
+}
+
+.heroText {
+  max-width: 720px;
 }
 
 .hero h1 {
-  font-size: 64px;
-  line-height: 1.02;
+  font-size: clamp(48px, 7vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
   margin: 0;
   max-width: 760px;
 }
@@ -17,87 +22,156 @@
 .subtitle {
   color: #cbd5e1;
   font-size: 20px;
-  line-height: 1.7;
-  max-width: 620px;
+  line-height: 1.75;
+  max-width: 650px;
+  margin: 28px 0 0;
 }
 
 .actions {
   display: flex;
   gap: 16px;
-  margin-top: 32px;
+  margin-top: 36px;
+}
+
+.primaryButton,
+.secondaryButton {
+  border: 0;
+  border-radius: 999px;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .primaryButton {
-  background: #16a34a;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
   color: white;
+  box-shadow: 0 16px 32px rgba(22, 163, 74, 0.28);
 }
 
 .secondaryButton {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   color: white;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.panel {
-  background: white;
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-2px);
+}
+
+.missionPanel {
+  background: rgba(255, 255, 255, 0.96);
   color: #0f172a;
-  border-radius: 28px;
-  padding: 32px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  border-radius: 32px;
+  padding: 30px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(226, 232, 240, 0.9);
 }
 
-label {
-  display: block;
-  color: #475569;
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #64748b;
+  font-size: 14px;
   font-weight: 800;
-  margin: 20px 0 8px;
+  margin-bottom: 24px;
 }
 
-select,
-.uploadBox {
+.panelHeader strong {
+  color: #16a34a;
+}
+
+.fieldGroup {
+  margin-bottom: 22px;
+}
+
+.fieldGroup label {
+  display: block;
+  color: #334155;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+select {
   width: 100%;
+  appearance: none;
   border: 1px solid #cbd5e1;
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 18px;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 900;
   background: #f8fafc;
+  color: #0f172a;
 }
 
 .uploadBox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px dashed #94a3b8;
+  border-radius: 18px;
+  padding: 18px;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.uploadIcon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #dcfce7;
+  color: #16a34a;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.uploadBox strong {
+  font-size: 16px;
+}
+
+.uploadBox p {
+  margin: 4px 0 0;
   color: #64748b;
 }
 
-.scorePreview {
-  margin-top: 28px;
-  padding: 24px;
-  border-radius: 20px;
+.previewCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: #ecfdf5;
+  border-radius: 22px;
+  padding: 22px;
+  margin-top: 26px;
 }
 
-.scorePreview span {
+.previewCard span {
   color: #166534;
-  font-weight: 800;
+  font-weight: 900;
 }
 
-.scorePreview strong {
-  display: block;
-  color: #059669;
-  font-size: 56px;
-  line-height: 1;
-  margin: 8px 0;
-}
-
-.scorePreview p {
+.previewCard p {
+  margin: 6px 0 0;
   color: #334155;
-  margin: 0;
+}
+
+.previewCard strong {
+  color: #059669;
+  font-size: 54px;
+  line-height: 1;
 }
 
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
+    gap: 42px;
   }
 
-  .hero h1 {
-    font-size: 46px;
+  .actions {
+    flex-direction: column;
   }
 }

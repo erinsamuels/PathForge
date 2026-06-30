@@ -1,0 +1,43 @@
+.pathScoreRing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.ring {
+  width: 156px;
+  height: 156px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 20px 40px rgba(22, 163, 74, 0.18);
+}
+
+.ringInner {
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  background: white;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.ringInner strong {
+  color: #059669;
+  font-size: 44px;
+  line-height: 0.8;
+}
+
+.ringInner span {
+  color: #64748b;
+  font-weight: 800;
+  margin-top: -26px;
+}
+
+.pathScoreRing p {
+  color: #15803d;
+  font-weight: 900;
+  margin: 0;
+}

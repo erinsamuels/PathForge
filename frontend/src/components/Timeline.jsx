@@ -1,55 +1,57 @@
+import "./Timeline.css";
+
 function Timeline() {
   const steps = [
     {
       title: "Virginia Tech",
       subtitle: "Mechanical Engineering",
-      completed: true,
+      status: "complete",
     },
     {
-      title: "Hybrid Electric Vehicle Team",
-      subtitle: "Leadership & Projects",
-      completed: true,
+      title: "HEVT",
+      subtitle: "Vehicle team experience",
+      status: "complete",
     },
     {
       title: "DuPont",
-      subtitle: "Mechanical Engineering Co-op",
-      completed: true,
+      subtitle: "Manufacturing co-op",
+      status: "complete",
     },
     {
-      title: "Recommended Next Step",
-      subtitle: "Manufacturing Engineer • BorgWarner",
-      completed: false,
+      title: "BorgWarner",
+      subtitle: "Recommended next step",
+      status: "recommended",
     },
     {
       title: "Rivian",
-      subtitle: "Dream Company",
-      completed: false,
-      destination: true,
+      subtitle: "Dream destination",
+      status: "destination",
     },
   ];
 
   return (
-    <section className="timelineSection">
-      <h2>Career Journey</h2>
+    <section className="journeySection">
+      <div className="sectionHeader">
+        <p className="eyebrow">Career Journey</p>
+        <h2>Your current path and recommended route forward.</h2>
+      </div>
 
-      {steps.map((step, index) => (
-        <div className="timelineItem" key={index}>
-          <div
-            className={
-              step.destination
-                ? "timelineCircle destination"
-                : step.completed
-                ? "timelineCircle complete"
-                : "timelineCircle future"
-            }
-          />
+      <div className="journeyCard">
+        {steps.map((step, index) => (
+          <div className="journeyItem" key={step.title}>
+            <div className={`journeyNode ${step.status}`}>
+              {step.status === "destination" ? "★" : index + 1}
+            </div>
 
-          <div className="timelineContent">
-            <h3>{step.title}</h3>
-            <p>{step.subtitle}</p>
+            {index !== steps.length - 1 && <div className="journeyLine" />}
+
+            <div className="journeyText">
+              <h3>{step.title}</h3>
+              <p>{step.subtitle}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   );
 }
