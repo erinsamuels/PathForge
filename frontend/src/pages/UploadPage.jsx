@@ -71,7 +71,8 @@ export function UploadPage() {
       await delay(400);
       setStepIdx(1); // extracting
 
-      const res = await fetch("/api/upload", {
+      const apiBase = import.meta.env.VITE_API_URL ?? "";
+      const res = await fetch(`${apiBase}/api/upload`, {
         method: "POST",
         body: formData,
       });

@@ -13,9 +13,18 @@ from backend.analyzer import analyze_profile
 
 app = FastAPI(title="PathForge API", version="1.0.0")
 
+_origins_env = os.getenv("ALLOWED_ORIGINS", "")
+_extra = [o.strip() for o in _origins_env.split(",") if o.strip()]
+ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://localhost:4173",
+    "http://127.0.0.1:5173",
+    *_extra,
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:4173", "http://127.0.0.1:5173"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
