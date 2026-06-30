@@ -115,17 +115,21 @@ def _analyze_with_fallback(text: str) -> dict:
             name = line
             break
 
-    # --- Skills detection ---
+    # --- Skills detection (whole-word matching to avoid false positives) ---
     skill_keywords = [
-        "Python", "Java", "JavaScript", "TypeScript", "React", "SQL", "R",
-        "SolidWorks", "CAD", "AutoCAD", "MATLAB", "C++", "C#", "Swift",
+        "Python", "Java", "JavaScript", "TypeScript", "React", "SQL",
+        "SolidWorks", "CAD", "AutoCAD", "MATLAB", "Swift",
         "Manufacturing", "Root Cause Analysis", "DFMEA", "APQP", "Lean",
         "Six Sigma", "Project Management", "Leadership", "Excel", "AWS",
         "Machine Learning", "TensorFlow", "PyTorch", "Kubernetes", "Docker",
-        "Agile", "Scrum", "Battery", "EV", "Automotive", "Mechanical Design",
+        "Agile", "Scrum", "Battery", "Automotive", "Mechanical Design",
         "Process Engineering", "Quality", "SPC", "GD&T",
     ]
-    skills = [s for s in skill_keywords if s.lower() in lower]
+    def _has_skill(skill: str) -> bool:
+        pattern = r"\b" + re.escape(skill) + r"\b"
+        return bool(re.search(pattern, text, re.IGNORECASE))
+
+    skills = [s for s in skill_keywords if _has_skill(s)]
 
     # --- Industries ---
     industry_map = {
@@ -144,8 +148,8 @@ def _analyze_with_fallback(text: str) -> dict:
     }
     industries = list({v for k, v in industry_map.items() if k in lower})
 
-    # --- Score ---
-    score = min(40 + len(skills) * 3 + len(industries) * 4, 100)
+    # --- Score (capped at 82 — 100 is reserved for AI-analyzed profiles) ---
+    score = min(40 + len(skills) * 3 + len(industries) * 4, 82)
     if score >= 85:
         label = "Excellent trajectory"
     elif score >= 70:
