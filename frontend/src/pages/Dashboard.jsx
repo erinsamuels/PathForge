@@ -3,8 +3,8 @@ import { CompanyTargets } from "../components/CompanyTargets";
 import { ConnectionTargets } from "../components/ConnectionTargets";
 import { NextActions } from "../components/NextActions";
 import { NodeDetails } from "../components/NodeDetails";
+import { PathDNA } from "../components/PathDNA";
 import { PathScore } from "../components/PathScore";
-import { ProfileSnapshot } from "../components/ProfileSnapshot";
 import { ResumeGap } from "../components/ResumeGap";
 import { Simulator } from "../components/Simulator";
 import { TargetSelector } from "../components/TargetSelector";
@@ -89,7 +89,7 @@ export function Dashboard({
 
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <NextActions moves={target.nextMoves} />
-          <ProfileSnapshot target={target} />
+          <PathDNA target={target} />
         </div>
       </div>
 

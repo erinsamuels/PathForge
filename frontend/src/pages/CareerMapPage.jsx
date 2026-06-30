@@ -1,5 +1,6 @@
 import { CareerGraph } from "../components/CareerGraph";
 import { NodeDetails } from "../components/NodeDetails";
+import { PathDNA } from "../components/PathDNA";
 import { PathScore } from "../components/PathScore";
 
 export function CareerMapPage({
@@ -79,11 +80,14 @@ export function CareerMapPage({
       {/* Node + Score row */}
       <div className="dashGrid" style={{ marginTop: 16 }}>
         <NodeDetails node={activeNode} />
-        <PathScore
-          activeMoves={activeMoves}
-          pathScore={pathScore}
-          target={target}
-        />
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          <PathScore
+            activeMoves={activeMoves}
+            pathScore={pathScore}
+            target={target}
+          />
+          <PathDNA target={target} />
+        </div>
       </div>
 
       {/* Full journey timeline */}
